@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import Search from '../components/Search';
+import Categories from '../components/Categories';
+import Carousel from '../components/Carousel';
+import CarouselItem from '../components/CarouselItem';
 import '../assets/styles/App.scss';
-import Search from "../components/Search";
-import Categories from "../components/Categories";
-import Carousel from "../components/Carousel";
-import CarouselItem from "../components/CarouselItem";
 
 const Home = ({myList, trends, originals}) => {
 
@@ -15,7 +15,11 @@ const Home = ({myList, trends, originals}) => {
                 myList.length > 0 &&
                 <Categories title="Mi Lista">
                     <Carousel>
-                        <CarouselItem/>
+                        {
+                            myList.map(item =>
+                                <CarouselItem key={item.id} {...item} />
+                            )
+                        }
                     </Carousel>
                 </Categories>
             }
@@ -32,7 +36,7 @@ const Home = ({myList, trends, originals}) => {
                 <Carousel>
                     {
                         originals.map(item =>
-                            <CarouselItem key={item.id} {...item}/>
+                            <CarouselItem key={item.id} {...item} />
                         )
                     }
                 </Carousel>
