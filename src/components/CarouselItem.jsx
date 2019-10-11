@@ -38,8 +38,6 @@ const CarouselItem = (props) => {
                                 onClick={handleSetFavorite}
                             />
                     }
-
-
                 </div>
                 <p className="carousel-item__details--title">{title}</p>
                 <p className="carousel-item__details--subtitle">
@@ -51,11 +49,13 @@ const CarouselItem = (props) => {
 };
 
 CarouselItem.propTypes = {
+    id: PropTypes.number,
     cover: PropTypes.string,
     title: PropTypes.string,
     year: PropTypes.number,
     contentRating: PropTypes.string,
     duration: PropTypes.number,
+    isList: PropTypes.bool,
 };
 
 const mapDispatchToProps = {

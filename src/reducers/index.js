@@ -5,9 +5,9 @@ const reducer = (state, action) => {
 
             return exist ? state :
                 {
-                ...state,
-                myList: [...state.myList, action.payload]
-            };
+                    ...state,
+                    myList: [...state.myList, action.payload]
+                };
         case 'DELETE_FAVORITE':
             return {
                 ...state,
@@ -17,6 +17,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 user: action.payload,
+            };
+        case 'LOGOUT_REQUEST':
+            return {
+                ...state,
+                user: action.payload
             };
         default:
             return state;
