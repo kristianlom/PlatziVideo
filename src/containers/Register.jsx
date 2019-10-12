@@ -11,12 +11,14 @@ const Register = (props) => {
     name: '',
     password: '',
   });
+
   const handleInput = (event) => {
     setValues({
       ...form,
       [event.target.name]: event.target.value,
     });
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     props.registerRequest(form);
